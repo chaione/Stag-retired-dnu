@@ -1,0 +1,5 @@
+%form{:action => "/projects/#{@project.id}/environments", :method => :post}
+  %label{:for => "environment_label"}
+    Label
+  %input{:type => "text", :name => "environment[label]", :id => "environment_label"}
+  %input{:type => "submit", :value => "Save"}

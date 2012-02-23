@@ -1,0 +1,1 @@
+PivotalTracker::Client.token = ENV["PIVOTAL_TRACKER_TOKEN"]

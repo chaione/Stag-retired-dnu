@@ -1,0 +1,19 @@
+%a{:href => "/projects/new"}
+  Add a Pivotal Tracker project
+#projects
+  - @projects.each do |project|
+    %article.project
+      %header
+        %h1
+          = project.name
+        %h2
+          = project.pivotal_tracker_id
+      %div.body
+        - project.environments.each do |environment|
+          .environment
+            %h3
+              = environment.label
+            .url
+              = environment.url  
+        %a{:href => "projects/#{project.id}/environments/new"}
+          Add an environment

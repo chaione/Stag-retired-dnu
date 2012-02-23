@@ -1,0 +1,8 @@
+%form{:action => "/projects", :method => "post"}
+  %label{:for => "project_pivotal_tracker_id"}
+    Pivotal Tracker Project ID
+  %input{:type => "text", :name => "project[pivotal_tracker_id]", :id => "project_pivotal_tracker_id"}
+  %label{:for => "project_name"}
+    Project name
+  %input{:type => "text", :name => "project[name]", :id => "project_name"}
+  %input{:type => "submit", :value => "Create"}
