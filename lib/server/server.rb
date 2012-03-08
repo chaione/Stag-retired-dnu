@@ -42,7 +42,7 @@ class Stag::Server < Sinatra::Base
 
   post "/projects/:project_id/environments" do
     @project = Project.find :id => params[:project_id]
-    @environment = @project.add_environment(params[:environment])
+    @deployment = DeploymentWrapper.new(@project, params[:deployment])
     redirect to "/projects"
   end
 
