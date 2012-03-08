@@ -9,11 +9,11 @@
         %h2
           = project.pivotal_tracker_id
       %div.body
-        - project.environments.each do |environment|
-          .environment
+        - project.deployments.each do |deployment|
+          .deployment
             %h3
-              = environment.label
+              = deployment.label
             .url
-              = environment.url  
-        %a{:href => "projects/#{project.id}/environments/new"}
-          Add an environment
+              = deployment.url  
+        %a{:href => "projects/#{project.id}/deployments/new"}
+          Add an deployment

@@ -101,6 +101,7 @@ DEPENDENCIES
   haml
   launchy
   pivotal-tracker
+  rack
   rspec
   sass
   sequel

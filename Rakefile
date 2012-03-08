@@ -1,19 +1,18 @@
 $:.unshift "."
 
-# require 'lib/stag'
+namespace :db do
+  task :drop do
+    `rm db/*.sqlite3`
+  end
 
-def drop
-  `rm db/*.sqlite3`
-end
-
-def migrate
-  [:development, :test].each do |environment|
-    `sequel -m db/migrations sqlite://db/stag_#{environment}.sqlite3`
+  task :migrate do
+    [:development, :test].each do |environment|
+      `sequel -m db/migrations sqlite://db/stag_#{environment}.sqlite3`
+    end
   end
 end
 
-
 task :default do
-  drop
-  migrate
+  Rake::Task['db:drop'].invoke
+  Rake::Task['db:migrate'].invoke
 end

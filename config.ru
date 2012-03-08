@@ -1,5 +1,5 @@
-# require 'bundler'
-# Bundler.require
+#require 'bundler'
+#Bundler.require
 
 $: << "." << "lib" << "lib/server"
 
