@@ -1,8 +1,13 @@
 class CreatesDeployment
   attr_accessor :params
   attr_writer :model
-  def initialize(params={})
+  def initialize(project, params={})
+    @project = project
     @params = params
+  end
+
+  def self.create(*args)
+    new(*args).create
   end
 
   def model
@@ -11,6 +16,14 @@ class CreatesDeployment
 
   def create
     model.create(build_params)
+  end
+
+  def project_id
+    @project.id
+  end
+
+  def build_attributes
+    [:project_id]
   end
 
   def build_params

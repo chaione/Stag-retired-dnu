@@ -36,13 +36,13 @@ class Stag::Server < Sinatra::Base
 
   get "/projects/:project_id/deployments/new" do
     @project = Project.find :id => params[:project_id]
-    @deployment = deployment.new
+    @deployment = Deployment.new
     haml :"deployments/new"
   end
 
   post "/projects/:project_id/deployments" do
     @project = Project.find :id => params[:project_id]
-    @deployment = DeploymentWrapper.new(@project, params[:deployment])
+    @deployment = CreatesDeployment.create(@project, params[:deployment])
     redirect to "/projects"
   end
 

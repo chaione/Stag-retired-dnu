@@ -9,6 +9,8 @@ gem "sass"
 gem "pivotal-tracker"
 gem "coffee-script"
 
+gem "pry", :group => [:test, :development]
+
 group :test do
   gem "rspec"
   gem "cucumber"
